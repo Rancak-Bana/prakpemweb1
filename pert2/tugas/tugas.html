@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 2 - Form</title>
+</head>
+<body>
+    <form name="form" method="post" action="">
+        <label for="input1">value tetap, bisa diklik, tidak bisa diedit</label><br>
+        <input name="input1" id="input1" type="text" value="Jehian" readonly><br>
+        <label for="input2">bisa diisi, max 5 karakter</label><br>
+        <input name="input2" id="input2" type="text" maxlength="5"><br>
+        <label for="input3">tidak bisa diklik/diisi</label><br>
+        <input name="input3" id="input3" type="text" disabled><br>
+        <label for="input4">wajib diisi</label><br>
+        <input name="input4" id="input4" type="text" required><br>
+        <label for="input5">format nim: 9 karakter berupa huruf kapital, angka, selain itu tidak bisa</label><br>
+        <input name="input5" id="input5" type="text" pattern="[A-Z][0-9][A-Z][0-9]{6}"><br>
+        <input name="submit" type="submit" value="submit">
+    </form>
+</body>
+</html>

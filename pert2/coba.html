@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input NIM</title>
+</head>
+<body>
+    <form>
+        <label for="nim">NIM (Hanya huruf dan angka, 9 karakter, tanpa simbol, huruf kecil):</label><br>
+        <input type="text" id="nim" name="nim" pattern="[hH][1-9][dD][0-9]{6}" title="Masukkan NIM yang valid (contoh: h1d022006)" required
+            oninput="this.value = this.value.replace(/[^a-z0-9]/g, '');"
+            inputmode="text">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
