@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+<title>Data Mahasiswa</title>
+</head>
+<body>
+<h1>Data Mahasiswa</h1>
+<form onsubmit="tampilkanData(); return false;">
+Nama:
+<input type="text" id="nama"><br>
+NIM (Format: X1X123456):
+<input type="text" id="nim"><br>
+Asal:
+<input type="text" id="asal"><br>
+Jalur Masuk (hanya untuk Maba):
+<input type="text" id="jalurMasuk"><br>
+<input type="submit" value="Tampilkan Detail Mahasiswa"><br><br>
+<span id="hasil"></span>
+</form>
+<script>
+class Mahasiswa {
+constructor(nama, nim, asal) {
+this.nama = nama;
+this.nim = nim;
+this.asal = asal;
+}
+tampilkanDetail() {
+return `Nama: ${this.nama}\nNIM: ${this.nim}\nAsal: ${this.asal}`;
+}
+}
+class Maba extends Mahasiswa {
+constructor(nama, nim, asal, jalurMasuk) {
+super(nama, nim, asal);
+this.jalurMasuk = jalurMasuk;
+}
+tampilkanDetail() {
+return super.tampilkanDetail() + `\nJalur Masuk: ${this.jalurMasuk}`;
+}
+}
+function tampilkanData() {
+var nama = document.getElementById("nama").value;
+var nim = document.getElementById("nim").value;
+var asal = document.getElementById("asal").value;
+var jalurMasuk = document.getElementById("jalurMasuk").value;
+var nimRegex = /^[A-Z]\d[A-Z]\d{6}$/;
+if (!nim.match(nimRegex)) {
+alert("Format NIM tidak sesuai. Format yang benar: X1X123456");
+} else if (nim.charAt(4) === '2' && nim.charAt(5) === '3') {
+if (jalurMasuk) {
+var maba = new Maba(nama, nim, asal, jalurMasuk);
+document.getElementById("hasil").innerHTML = maba.tampilkanDetail();
+} else {
+alert("Anda harus mengisi jalur masuk karena NIM sesuai.");
+}
+} else {
+if (jalurMasuk) {
+alert("Hanya maba yang boleh mengisi jalur masuk.");
+} else {
+var mahasiswa = new Mahasiswa(nama, nim, asal);
+document.getElementById("hasil").innerHTML = mahasiswa.tampilkanDetail();
+}
+}
+}
+</script>
+</body>
+</html>

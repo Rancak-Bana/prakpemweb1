@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<title>BAGUS</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+text-decoration: none;
+color: black;
+}
+.nav {
+list-style: none;
+display: flex;
+gap: 10px;
+margin: 10px 0;
+}
+.statistik-desc {
+list-style: circle;
+display: none;
+position: absolute;
+}
+.nav li:nth-child(2):hover + .statistik-desc, .statistik-desc:hover {
+display: block;
+}
+</style>
+</head>
+<body>
+<h1>
+<span style="background: red;">B</span>
+<span style="background: yellow;">A</span>
+<span style="background: green;">G</span>
+<span style="background: blue;">U</span>
+<span style="background: purple;">S</span>
+</h1>
+<ul class="nav">
+<li style="background: red;">Beranda</li>
+<li style="background: blue;">
+<a href="">Statistik</a>
+</li>
+<li style="background: cyan;">Tentang Saya</li>
+<li style="background: yellow;">Kontak</li>
+</ul>
+<ul class="statistik-desc">
+<li>Jumlah<br>Permainan</li>
+<li>Jumlah<br>Kemenangan</li>
+<li>Jumlah Kill</li>
+<li>Jumlah<br>Death</li>
+<li>Jumlah<br>Assist</li>
+<li>Persentase<br>Headshot</li>
+<li>Persentase<br>Clutch</li>
+<li>Persentase<br>First Kill</li>
+</ul>
+</body>
+</html>

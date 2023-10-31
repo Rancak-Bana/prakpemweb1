@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+<title>Escape Room</title>
+</head>
+<body>
+<h1>Kalkulator Password</h1>
+<form onsubmit="hitungPassword(); return false;">
+Bilangan Prima A:
+<input type="number" id="A"><br>
+Bilangan Prima B:
+<input type="number" id="B"><br>
+Bilangan Prima C:
+<input type="number" id="C"><br>
+<input type="submit" value="Hitung Password"><br><br>
+<span id="hasil"></span>
+</form>
+<script>
+function isPrime(num) {
+if (num <= 1) return false;
+if (num <= 3) return true;
+if (num % 2 === 0 || num % 3 === 0) return false;
+for (var i = 5; i * i <= num; i += 6) {
+if (num % i === 0 || num % (i + 2) === 0) return false;
+}
+return true;
+}
+function hitungPassword() {
+var A = document.getElementById("A").value;
+var B = document.getElementById("B").value;
+var C = document.getElementById("C").value;
+var password = "";
+if (isPrime(A) && isPrime(B) && isPrime(C)) {
+var count = 0;
+for (var i = 2; i < 100; i++) {
+if (count === 5) break;
+if (i % A !== 0 && i % B !== 0 && i % C !== 0) {
+password += i + " ";
+count++;
+}
+}
+document.getElementById("hasil").innerHTML = "Password: " + password;
+} else {
+document.getElementById("hasil").innerHTML = "Terdapat bilangan non-prima!";
+}
+}
+</script>
+</body>
+</html>

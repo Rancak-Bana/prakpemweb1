@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1</title>
+    <style>
+        /* atur border */
+        div {
+            box-sizing: border-box;
+            margin: 1px auto;
+            width: 1000px;
+            border-style: solid;
+            border-color: black;
+            max-width: 100%;
+        }
+        div:hover {
+            border: 3px dashed black;
+        }
+        .top {
+            border-width: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        .center1 {
+            border-width: 3px;
+            padding: 10px;
+        }
+        .center2 {
+            border-width: 3px;
+            padding: 10px;
+	    height: 320px;
+	    overflow: auto;
+        }
+        .bottom {
+            border-width: 7px;
+            display: flex;
+            justify-content: center;
+        }
+        /* atur konten */
+	p {
+	    text-align: justify;
+	}
+	#komentarList {
+	    border: 0;
+	}
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>Kalimanah News</h1>
+    </div>
+    <div class="center1">
+	<a href="soal1.html">Kembali</a>
+        <h2>The Architecture of a Modern Startup</h2>
+        <p>&nbsp;&nbsp;&nbsp;The Tech side of startups can sometimes be very fluid and contain a lot of unknowns. What tech stack to use? Which components might be overkill for now but worth keeping an eye on in the future? How to balance the pace of business features development while keeping the quality bar high enough to have a maintainable codebase? Here I want to share our experience building https://cleanbee.syzygy-ai.com/ from the ground up — how we shaped our processes based on needs and how our processes evolved as we extended our tech stack with new components. Businesses want to conquer the market and engineers — try cool stuff and stretch their brains. Meanwhile, the industry produces new languages, frameworks, and libraries in such quantities that you will not be able to check them all. And, usually, if you scratch the shiny surface of the Next Big Thing, you will find a good old concept. Good, if you are lucky. One of the most exciting topics to argue about is the processes — whether you rely on trunk-based development, prefer a more monstrous GitHub flow, are a fan of mobbing, or find it more efficient to spend time in PR-based code reviews.</p>
+        <p>&nbsp;&nbsp;&nbsp;I have experience working in an environment where artifacts were thrown away on users without any standardized process. In case of issues, developers had a lot of fun (nope!) trying to figure out what version of components was actually deployed. On another spectrum is the never-ending queue to CI. After you create PR you have to entertain yourself in the nearest 30 minutes by betting whether the CI cluster will find a resource to run tests over your changes. Sometimes the platform team introduces new, exciting, and useful features that might break compatibility with existing boilerplate for CI. These may result in failing all your checks at the last minute, after an hour of waiting. I strongly believe that, as usual, it all depends on team maturity, the kind of software you are building, and various business constraints.</p>
+    </div>
+    <div class="center2">
+        <h2>Komentar</h2>
+	<hr>
+	<b>Nama</b>: Solihin<br>
+	<b>Komentar</b>: Mantap<br>
+	<div id="komentarList"></div>
+	<hr>
+	<h3>Berikan komentar</h3>
+	<table border="1">
+	   <tr>
+	      <td>Nama</td>
+	      <td><input type="text" id="nama"></td>
+	   </tr>	   
+	   <tr>
+	      <td>Komentar</td>
+	      <td><textarea id="komentar"></textarea></td>
+	   </tr>
+	   <tr>
+	      <td></td>
+	      <td><button type="submit" onclick="tambahKomentar()">Buat</button></td>
+	   </tr>
+	</table>
+    </div>
+    <div class="bottom">
+        <p>Copyright 2023</p>
+    </div>
+    <script>
+        function tambahKomentar() {
+            var nama = document.getElementById("nama").value;
+            var komentar = document.getElementById("komentar").value;
+
+            if (nama && komentar) {
+                var komentarList = document.getElementById("komentarList");
+                var komentarBaru = document.createElement("p");
+                komentarBaru.innerHTML = "<b>Nama</b>: " + nama + "<br><b>Komentar</b>: " + komentar;
+                komentarList.appendChild(komentarBaru);
+            }
+        }
+    </script>
+</body>
+</html>

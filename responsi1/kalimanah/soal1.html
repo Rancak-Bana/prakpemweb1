@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1</title>
+    <style>
+        /* atur border */
+        div {
+            box-sizing: border-box;
+            margin: 1px auto;
+            width: 1000px;
+            border-style: solid;
+            border-color: black;
+            max-width: 100%;
+        }
+        div:hover {
+            border: 3px dashed black;
+        }
+        .top {
+            border-width: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        .center1 {
+            border-width: 3px;
+            padding: 10px;
+        }
+        .center2 {
+            border: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .center2:hover {
+            border: 0;
+        }
+        .center2-left {
+            width: 50%;
+            border-width: 3px;
+            margin-right: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .center2-right {
+            width: 50%;
+            border-width: 3px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bottom {
+            border-width: 7px;
+            display: flex;
+            justify-content: center;
+        }
+        /* atur konten */
+        .center2-left h2, .center2-left h3, .center2-left img, .center2-right h3, .center2-right p {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>Kalimanah News</h1>
+    </div>
+    <div class="center1">
+        <h2>20 JavaScript Abbreviation Techniques To Improve Efficiency</h2>
+        <p>JavaScript is a powerful scripting language that can be used to add impressive dynamic functionality on your website. It is also the most popular programming language in the world.</p>
+        <a href="soal2.html">Baca lebih lanjut</a>
+        <h2>10 Modern CSS Layouts With One Line</h2>
+        <p>Modern CSS layout allows developers to write meaningful and powerful style rules with just a few keystrokes. The above discussion and the following post examine 10 powerful CSS layouts.</p>
+        <a href="soal2.html">Baca lebih lanjut</a>
+    </div>
+    <div class="center2">
+        <div class="center2-left">
+            <h2>Profile Penulis</h2>
+            <h3>Jehian Athaya</h3>
+            <img src="foto.png" width="100">
+        </div>
+        <div class="center2-right">
+            <h3>Tentang Penulis</h3>
+            <p>Lahir di Bogor pada tanggal 3 Januari 2004</p>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>Copyright 2023</p>
+    </div>
+</body>
+</html>

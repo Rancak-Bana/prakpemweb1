@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan</title>
+</head>
+<body>
+    <form name="latihan" method="POST" onsubmit="return cekTerisi()">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td><input name="nama" id="nama" type="text" onkeyup="cekFormat(this)"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><input name="email" id="email" type="email"></td>
+            </tr>
+            <tr>
+                <td>Komentar</td>
+                <td>:</td>
+                <td><textarea name="komentar" id="komentar" cols="40" rows="6"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input name="simpan" id="simpan" type="submit" value="Simpan"></input>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        const nama = document.getElementById("nama");
+        const email = document.getElementById("email");
+        const komentar = document.getElementById("komentar");
+        function cekFormat(input) {
+            const regex = new RegExp('[^a-zA-Z\s]', 'g');
+            const nama = input.value;
+            if (regex.test(nama)) {
+                alert("Nama harus huruf, tidak boleh angka dan simbol!");
+                input.focus();
+                input.value = nama.replace(regex, "");
+            }
+        }
+        function cekTerisi() {
+            if (nama.value == "" || email.value == "" || komentar.value == "") {
+                alert("Semua field harus diisi!");
+                return false;
+            }
+            alert("Pengisian form sukses!");
+            return true;
+        }
+    </script>
+</body>
+</html>

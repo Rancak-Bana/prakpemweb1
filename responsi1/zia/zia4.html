@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+<title>Kalkulator Poin</title>
+</head>
+<body>
+<h1>Kalkulator Poin</h1>
+<form onsubmit="tampilkanTotalPoin(); return false;">
+Masukkan bilangan:
+<input type="number" id="bil">
+<input type="submit" value="Jumlahkan"><br>
+<span id="hasil"></span>
+</form>
+<script>
+function tampilkanTotalPoin() {
+var bil = parseInt(document.getElementById("bil").value);
+var arr = [bil];
+var totalPoin = 0;
+if (bil % 2 === 1) {
+totalPoin += 1;
+}
+if (bil % 2 === 0 && bil !== 4) {
+totalPoin += 2;
+}
+if (bil === 4) {
+totalPoin += 4;
+}
+document.getElementById("hasil").innerHTML = "Total Poin: " + totalPoin;
+}
+</script>
+</body>
+</html>

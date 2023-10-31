@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 2</title>
+    <style>
+        .active {
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplikasi Kalkulator Sederhana</h1>
+    <table>
+        <tr>
+            <td>Input 1 :</td>
+            <td>
+                <input type="text" id="input1" oninput="cekInput(this.id)">
+            </td>
+        </tr>
+        <tr>
+            <td>Input 2 :</td>
+            <td>
+                <input type="text" id="input2" oninput="cekInput(this.id)">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="hitung('+')">+</button>
+                <button onclick="hitung('-')">-</button>
+                <button onclick="hitung('*')">*</button>
+                <button onclick="hitung('/')">/</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Hasil :</td>
+            <td>
+                <span id="hasil"></span>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    function cekInput(id) {
+        const input = document.getElementById(id);
+        input.value = input.value.replace(/[^-\d.]|-(?=.*-)|\.(?=.*\.)/g, '');
+    }
+
+    function hitung(operasi) {
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(function(button) {
+            button.classList.remove("active");
+        });
+
+        const input1 = parseFloat(document.getElementById("input1").value);
+        const input2 = parseFloat(document.getElementById("input2").value);
+        let hasil;
+
+        if (isNaN(input1) || isNaN(input2)) {
+            alert("Input harus diisi!");
+            return;
+        }
+        switch (operasi) {
+            case '+':
+                hasil = input1 + input2;
+                break;
+            case '-':
+                hasil = input1 - input2;
+                break;
+            case '*':
+                hasil = input1 * input2;
+                break;
+            case '/':
+                if (input2 === 0) {
+                    alert("Tidak terdefinisi!");
+                    return;
+                }
+                hasil = input1 / input2;
+                break;
+        }
+
+        document.getElementById("hasil").textContent = hasil;
+        const activeButton = document.querySelector(`button[onclick="hitung('${operasi}')"]`);
+        activeButton.classList.add("active");
+    }
+</script>
+</html>
