@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Produk - Toko Buah Segar</title>
+    <style>
+        body {
+            font-family: Arial, sans;
+            font-size: 12px;
+            border: 1px solid black;
+        }
+
+        header,
+        main,
+        footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #333333;
+        }
+
+        header h1,
+        footer {
+            color: white;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin-left: -40px;
+            margin-top: -1px;
+            margin-bottom: 30px;
+        }
+
+        main {
+            background-color: #f0f0f0;
+        }
+
+        .items,
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .item {
+            flex-direction: column;
+            background-color: white;
+            padding: 5px;
+            border: 2px solid #e6e6e6;
+        }
+
+        .item h2 {
+            margin: 0px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 8px 16px;
+            border: 0;
+            margin-bottom: 5px;
+        }
+
+        .keranjang {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            align-items: start;
+            background-color: white;
+            border: 2px solid #e6e6e6;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .keranjang h1 {
+            margin-top: 0;
+        }
+
+        .beli {
+            background-color: #017afb;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Toko Buah</h1>
+        <ul>
+            <li><a href="beranda.html">Beranda</a></li>
+            <li><a href="#">Produk</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="items" id="items">
+            <form onsubmit="beliPisang(); return false;">
+                <div class="item">
+                    <img src="pisang.jpg" width="250px" height="100px">
+                    <h2>Pisang</h2>
+                    <span>Harga: $300</span>
+                    <span>Pisang Kuning Menawan</span>
+                    <button class="beli" type="submit">Beli Sekarang</button>
+                </div>
+            </form>
+            <form onsubmit="beliApel(); return false;">
+                <div class="item">
+                    <img src="apel.jpg" width="250px" height="100px">
+                    <h2>Apel</h2>
+                    <span>Harga: $250</span>
+                    <span>Apel Merah Delima</span>
+                    <button class="beli" type="submit">Beli Sekarang</button>
+                </div>
+            </form>
+        </div>
+        <div class="keranjang">
+            <h1>Keranjang Belanja</h1>
+            <form onsubmit="delPisang(); return false;">
+                <div>
+                    <span id="hasil-nama"></span><span id="hasil-harga"></span>
+                </div>
+            </form>
+            <form onsubmit="delApel(); return false;">
+                <div>
+                    <span id="hasil2-nama"></span><span id="hasil2-harga"></span>
+                </div>
+                <button class="beli">Checkout</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        function beliPisang() {
+            document.getElementById("hasil-nama").innerHTML = "Pisang x2 - ";
+            document.getElementById("hasil-harga").innerHTML = "Harga $300<button>Hapus dari Keranjang</button>";
+        }
+        function beliApel() {
+            document.getElementById("hasil2-nama").innerHTML = "Apel x1 - ";
+            document.getElementById("hasil2-harga").innerHTML = "Harga $250<button>Hapus dari Keranjang</button>"
+        }
+        function delPisang() {
+            alert('Pesanan berhasil dicheckout');
+        }
+        function delApel() {
+            alert('Pesanan berhasil dicheckout');
+        }
+    </script>
+</body>
+
+</html>
